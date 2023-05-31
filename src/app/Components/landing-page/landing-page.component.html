@@ -1,0 +1,78 @@
+
+ <div class=" container-fluid">
+  <div class="row d-flex justify-content-between align-items-center bg-warning">
+    <div class="col-2 "><a routerLink="/users">Users</a></div>
+    <div class="col-4 text-right"><button class="btn btn-light m-1" data-bs-toggle="modal"
+        data-bs-target="#ModalForm" (click)="openPopup('ADD')">+Add User</button></div>
+  </div>
+</div>
+<table class=" table table-dark table-striped " #table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Number</th>
+      <th>Address</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody id="table-body" *ngFor="let u of users">
+    <tr>
+      <td><a routerLink="/users/{{u.id}}/albums">{{u.name}}</a></td>
+      <td>{{u.email}}</td>
+      <td>{{u.phone}}</td>
+      <td>{{u.address.street}} st, {{u.address.suite}}, {{u.address.city}}</td>
+      <td>
+        
+        <button class="btn btn-danger m-1  " (click)="confirmDelete(u.id)"> Delete </button>
+
+      <button class="btn btn-warning  m-1  "data-bs-toggle="modal" data-bs-target="#ModalForm" (click)="openPopup('edit',u)">Edit</button>
+
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+<div class="modal fade  " id="ModalForm" tabindex="-1" aria-labelledby="ModalFormLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered ">
+    <div class="modal-content ">
+      <div class="modal-body ">
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        <div class="myform bg-dark ">
+          <h1 class="text-center text-warning">User Information</h1>
+          <form >
+            <div class="m-1 ">
+              <label>Name</label>
+              <input type="text" class="form-control" [value]="this.name" #nameId aria-describedby="Name">
+            </div>
+            <div class="mb-3 mt-4">
+              <label class="form-label">Email </label>
+              <input type="email" class="form-control"[value]="this.email" #emailId aria-describedby="emailHelp">
+            </div>
+            <div class="m-1">
+              <label class="form-label">Phone</label>
+              <input type="text" class="form-control"[value]="this.phone" #phoneId>
+            </div>
+            <div class="m-1 ">
+              <label class="form-label">street</label>
+              <input type="text" class="form-control" [value]="this.street" #streetId>
+            </div>
+            <div class="m-1 ">
+              <label class="form-label">suite</label>
+              <input type="text" class="form-control"[value]="this.suite" #suiteId>
+            </div>
+            <div class="m-1">
+              <label class="form-label">city</label>
+              <input type="text" class="form-control"[value]="this.city" #cityId>
+            </div>
+            <button class="btn btn-warning"
+              (click)="Save($event,FormContext,nameId.value,emailId.value,phoneId.value,streetId.value,suiteId.value,cityId.value)"[attr.data-bs-dismiss]="isValid ? 'modal' : null">save</button> 
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

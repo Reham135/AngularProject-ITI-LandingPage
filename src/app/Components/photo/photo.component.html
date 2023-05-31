@@ -1,0 +1,26 @@
+<div class="container-fluid">
+<div class=" bg-dark p-1 row d-flex justify-content-center align-items-center shadow p-1 mb-3">
+    <div *ngIf="user"class="d-inline-block col-3 vertical-divider h6 text-light pt-3 ">
+      <p class="text-light  ">{{user.name}}</p>
+    </div>
+      <div class="d-inline-block col-3 vertical-divider h6 text-light">
+      <p >{{user.email}}</p>
+      <p >{{user.phone}}</p>
+    </div>
+    <div class="d-inline-block  col-3 h6 text-light pt-2">
+      <p >Address</p>
+      <p >{{user.address.street}} st, {{user.address.suite}}, {{user.address.city}}</p>
+    </div>
+  </div>
+  
+  <div class="p-3 h5">Photos</div>
+  
+
+  <div class="container d-flex flex-wrap justify-content-center  ">
+<div  *ngFor="let p of photos flex-item" >
+<div class="card flex-item " style="width: 10rem;">
+  <img *ngFor="let p of photos" class="m-2" src="{{p.url}}" alt="Card image cap">
+</div>
+</div>
+</div>
+</div>

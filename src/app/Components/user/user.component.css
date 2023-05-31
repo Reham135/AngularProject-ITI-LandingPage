@@ -1,0 +1,28 @@
+.vertical-divider {
+    border-right: 1px solid rgb(242, 205, 21);
+    margin-right: 10px; 
+    margin-left: 10px; 
+    margin-top: 10px;
+height: 60px;
+  }
+  .albumDivs{
+    width: 150px;
+    height: 150px;
+
+   }
+   .shadow {
+    box-shadow: 0 0 8px 0 rgba(223, 199, 19, 0.9);
+  }
+  .link-hover-underline {
+    text-decoration: none;
+  }
+  
+  .link-hover-underline:hover {
+    text-decoration: underline;
+  }
+  
+  
+  
+
+
+

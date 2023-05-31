@@ -1,0 +1,29 @@
+<div class="container-fluid">
+<div class=" bg-dark p-1 row d-flex justify-content-center align-items-center shadow p-1 mb-3">
+  <div *ngIf="user"class="d-inline-block col-3 vertical-divider h6 text-light pt-3 ">
+    <p class="text-light  ">{{user.name}}</p>
+  </div>
+    <div class="d-inline-block col-3 vertical-divider h6 text-light">
+    <p >{{user.email}}</p>
+    <p >{{user.phone}}</p>
+  </div>
+  <div class="d-inline-block  col-3 h6 text-light pt-2">
+    <p >Address</p>
+    <p >{{user.address.street}} st, {{user.address.suite}}, {{user.address.city}}</p>
+  </div>
+</div>
+
+<div class="p-3 h5 ">{{user.name}}'s Albums</div>
+
+
+<div class="container d-flex flex-wrap justify-content-center ">
+<div class="card border-warning mb-3 m-4 " style="max-width: 18rem;"*ngFor="let a of albums">
+  <div class="card-header bg-warning flex-item"><a routerLink="/users/{{user.id}}/albums/{{a.id}}" class="text-dark link-hover-underline" >Album {{a.id}}</a></div>
+  <div class="card-body text-warning">
+    <h5 class="card-title">{{a.title}}</h5>
+  </div>
+</div>
+</div>
+
+</div>
+      
